@@ -1,0 +1,9 @@
+node_modules
+.env
+data/
+workspaces/
+config/claudepress.json
+.DS_Store
+*.log
+web/brand/drafts/
+.claude/

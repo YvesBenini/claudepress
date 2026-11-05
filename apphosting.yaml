@@ -1,0 +1,25 @@
+# Firebase App Hosting. Every setting comes from Secret Manager, so this file fits any instance:
+# create these secrets in your own Firebase project (firebase apphosting:secrets:set <name>).
+runConfig:
+  minInstances: 0
+  maxInstances: 1          # one instance: previews and the assistant keep a little state in memory
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 1024
+
+env:
+  - variable: CLAUDEPRESS_CONFIG_JSON    # the server settings as one line of JSON (see config/claudepress.example.json)
+    secret: claudepress-config
+  - variable: CLAUDEPRESS_DATA
+    value: /tmp/claudepress
+    availability: [RUNTIME]
+  - variable: CLAUDEPRESS_SECRET         # encrypts the Claude keys accounts bring and the GitHub App's keys
+    secret: claudepress-encryption-key
+  - variable: FAL_KEY                    # fal.ai key for image generation
+    secret: claudepress-fal-key
+  - variable: ANTHROPIC_API_KEY          # Claude key the accounts use when they bring none of their own
+    secret: claudepress-anthropic-key
+  # E-mails (server/mail.ts: invitations, monitoring alerts), sent from the config's `mail.from`; leave out to show links instead
+  - variable: RESEND_API_KEY
+    secret: claudepress-resend-key
+  # Repositories are reached through the ClaudePress GitHub App (created from Administration → Sites), no token here.

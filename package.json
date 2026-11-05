@@ -1,0 +1,36 @@
+{
+  "name": "claudepress",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Let clients edit a static site by asking in plain language: preview, before/after, approval, publish.",
+  "type": "module",
+  "engines": {
+    "node": "24"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/main.ts",
+    "dev": "node --watch --env-file-if-exists=.env server/main.ts",
+    "check": "tsc -p ."
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "firebase-admin": "^13.10.0",
+    "google-auth-library": "^10.9.1",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5"
+  },
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YvesBenini/claudepress.git"
+  },
+  "homepage": "https://claudepress.org",
+  "bugs": {
+    "url": "https://github.com/YvesBenini/claudepress/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/qrcode": "^1.5.6",
+    "typescript": "^7.0.2"
+  }
+}

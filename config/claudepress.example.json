@@ -1,0 +1,41 @@
+{
+  "port": 4400,
+  "host": "localhost",
+  "model": "claude-opus-5-5",
+  "agencyName": "Your agency",
+  "sites": [
+    {
+      "id": "client",
+      "name": "Client",
+      "liveUrl": "https://www.client.example",
+      "repo": "https://github.com/your-org/client-site.git",
+      "branch": "main",
+      "seedCache": [],
+      "adapter": {
+        "type": "blocks-json",
+        "pagesFile": "source/content/pages.json",
+        "pricesFile": "source/content/prices.json",
+        "lang": "fr",
+        "mediaDir": "source/media",
+        "mediaPrefix": "/wp-content/uploads/",
+        "build": [
+          "python3",
+          "build/build.py"
+        ],
+        "outDir": "site",
+        "guide": "Plain-language notes for the assistant: what clients may change on this site and what goes to the agency."
+      },
+      "push": false
+    }
+  ],
+  "publicUrl": "https://claudepress.example.com",
+  "firebase": {
+    "apiKey": "(web API key from Firebase project settings; public)",
+    "authDomain": "your-project.firebaseapp.com",
+    "projectId": "your-project",
+    "appId": "(web app id)"
+  },
+  "storage": {
+    "type": "local"
+  }
+}
